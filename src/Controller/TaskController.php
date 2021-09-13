@@ -21,30 +21,6 @@ class TaskController extends AbstractController{
         $this->taskRepository = $taskRepository;
     }
 
-//    /**
-//     * @param MessageGenerator $messageGenerator
-//     * @Route("/messageGenerator")
-//     */
-//    public function newMessage(MessageGenerator $messageGenerator): Response {
-//        $message = $messageGenerator->getRandomMessage();
-//        $this->addFlash('notice', $message);
-//
-//        return new Response(
-//            '<html lang="en"><body><h4>Er komt een message:</h4></body></html>'
-//        );
-//    }
-//
-//    /**
-//     * @return Response
-//     * @Route("/testLogger")
-//     */
-//    public function testLogger(): Response {
-//
-//        return new Response(
-//            '<html lang="en"><body><h5>Help me dit is geen grap</h5></body></html>'
-//        );
-//    }
-
     /**
      * @param Request $request
      * @return Response

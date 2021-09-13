@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ToDoItemRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ToDoItemRepository::class)
@@ -19,18 +20,27 @@ class ToDoItem
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $task;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank
+     * @Assert\Type("\DateTime")
      */
     private $dueDate;
 
     /**
      * @ORM\Column(type="boolean")
+     *
      */
     private $isDone;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $description;
 
     public function getId(): ?int
     {
@@ -69,6 +79,18 @@ class ToDoItem
     public function setIsDone(bool $isDone): self
     {
         $this->isDone = $isDone;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
